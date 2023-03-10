@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="CSS/styleazba.css"> 
+	<title>	Форма заявки</title>
+</head>
+<body class="apl">
+	
+	
+	<header class="apl">
+		<section class="regapl">
+			<h1>Форма заявки</h1>
+			<form method="post" action="/submit-application">
+				<input type="text" name="name" id="name" class="form_control" required placeholder="Введите имя">
+				<br>
+				<input type="email" name="email" id="email" class="form_control" required placeholder="Введите почту">
+				<br>
+				<input type="tel" name="phone" id="phone" class="form_control" required placeholder="Введите номер телефона">
+				<br>
+				<input type="text" name="address" id="address" class="form_control" required placeholder="Введите адрес">
+				<br>
+				<input type="submit" class="btnreg" value="Отправить заявку">
+			</form>
+		</section>
+	</header>
+</body>
+</html>

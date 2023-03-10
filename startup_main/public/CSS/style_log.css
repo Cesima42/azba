@@ -1,0 +1,35 @@
+.back_img {
+    padding-top: 50px;
+    padding-bottom: 238px;
+
+    background: url("/images/back_registr.jpg") center; 
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.jobs1 {
+    display: flex;
+}
+.job-block {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    max-width: 400px;
+}
+
+.job-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.job-description {
+    margin-top: 10px;
+}
+
+.job-requirements {
+    margin-top: 10px;
+}
+
+.job-contact {
+    margin-top: 10px;
+}

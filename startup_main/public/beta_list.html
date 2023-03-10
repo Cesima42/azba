@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html class="html">
+<head>
+	<link rel="stylesheet" type="text/css" href="CSS/styleazba.css"> 
+	<link rel="stylesheet" href="CSS/styleazba.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&family=Caveat&family=Dancing+Script:wght@500&family=Didact+Gothic&family=Manrope:wght@200&family=Pacifico&family=Quicksand:wght@300&family=Slabo+27px&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" type="text/css" href="/CSS/styleazba.css"> 
+
+	<title>Список стажеров</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="interns.js" type="module"></script>
+</head>
+<body>
+
+	<header class="header" style="background-color:  #333;">
+        <div class="container">
+            <div class="header_inner">
+                <a class="header_logo" href="index.html">AZBA</a>
+                
+                <nav class="nav">
+                    <a class="nav_link" href="index.html#section">About us</a>
+                    <a class="nav_link" href="index.html#mjob">Vacancy</a>
+                    <a class="nav_link" href="#">Create a resume</a>
+                    <a class="nav_link" href="/public/index1-1.html">Sign up</a>
+					<a class="nav_link" href="/public/index2-2.html">Log in</a>
+
+                </nav>
+
+            </div>
+        </div>
+
+    </header>
+	<div class="list">
+	<h1 class="title">Список стажеров</h1>
+	<label for="speciality_filter">Фильтр по специальности:</label>
+	<select id="speciality_filter">
+		<option value="" class="form_control">-- Все специальности --</option>
+		<option value="frontend">Frontend-разработчик</option>
+		<option value="backend">Backend-разработчик</option>
+		<option value="design">Дизайнер</option>
+		<option value="qa">Тестировщик</option>
+	</select><br>
+	<label for="course_filter">Фильтр по курсу обучения:</label>
+	<select id="course_filter">
+		<option value="" class="form_control">-- Все курсы --</option>
+		<option value="1">1 курс</option>
+		<option value="2">2 курс</option>
+		<option value="3">3 курс</option>
+	</select>
+	<section  class="btnl">
+		<button id="filter_btn" class="btnreg">Применить фильтры</button><br>
+		<button id="reset_btn" class="btnreg">Сбросить фильтры</button>
+	</section>
+	<div class="table-container">
+		<table class="tbl">
+			<thead>
+				<tr>
+					<th class="titlelist">Имя</th>
+					<th class="titlelist">Фамилия</th>
+					<th class="titlelist">Возраст</th>
+					<th class="titlelist">Специальность</th>
+					<th class="titlelist">Курс обучения</th>
+				</tr>
+			</thead>
+			<tbody id="interns_list">
+				<!-- Список стажеров будет генерироваться с помощью JavaScript -->
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+		<script>
+			// Функция для загрузки списка стажеров с сервера и его отображения на странице
+			function loadInternsList(specialityFilter, courseFilter) {
+				// Очистка текущего списка стажеров
+				$("#interns_list").empty();
+				// Загрузка списка стажеров с сервера
+				$.getJSON("interns/list/", {"speciality": specialityFilter, "course": courseFilter}, function(data) {
+					// Отображение списка стажеров на странице
+					$.each(data, function(i, intern) {
+						var row = $("<tr>");
+						row.append($("<td>").text(intern.first_name));
+						row.append($("<td>").text(intern.last_name));
+						row.append($("<td>").text(intern.age));
+						row.append($("<td>").text(intern.speciality));
+						row.append($("<td>").text(intern.course));
+						$("#interns_list").append(row);
+					});
+				});
+			}
