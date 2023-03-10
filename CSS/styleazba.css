@@ -38,7 +38,7 @@ html {
     width: 100%;
     height: 100vh;
     
-    background: url("/public/images/fotor1.jpg") center;
+    background: url("/images/fotor1.jpg") center;
     background-repeat: no-repeat;
     background-size: cover;
     
@@ -370,7 +370,7 @@ html {
 .containerw {
     padding-top: 50px;
     padding-bottom: 779px;
-    background: url("/public/images/back_registr11.jpg") center; 
+    background: url("/images/back_registr11.jpg") center; 
     background-repeat: no-repeat;
     background-size: cover;
 }
